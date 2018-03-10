@@ -1,0 +1,14 @@
+1. What's the difference between new/delete and malloc/free?
+A: The former is usually used with C++ classes, the latter is used for plain C data. The former usually uses the heap to allocate the object, but can be customized via std::allocator to implement a custom allocator. The latter allocates memory in heap directly. The former has a array variant of new[] and delete[]. The latter usually uses pointer and len*sizeof() for this purpose. The former calls the constructor and destructor of the corresponding type, but the latter just returns void* and requires a cast.
+
+2. Are header files necessary? When are they necessary? And when not?
+A: Nope. Header files will get replaced and reduced into the translation unit upon preprocessing. You can always declare everything you use in your source code instead of using a header file, but it is error-prone and bad for code-reuse. Some files e.g. config.h are always intended to be shared among all source code.
+
+3. What is the multiple declaration error of header file? How to avoid the problem?
+A: Suppose you declare "void work()" in header1.h, and header2.h has header1.h included. When user.cpp includes both headers, the declaration gets repeated twice, generating the error. To avoid the problem, a common solution is to use header guard i.e. "#ifdef SOME_HEADER_FILE\n#define SOME_HEADER_FILE" at the beginning and "#endif" at the end of the file. Sometimes, a "#pargma once" is supported in some compilers and does the same thing.
+
+4. What is the similarity and difference between class and struct in C++?
+A: C++ got "struct" from C, and "struct" is implemented as a publicly derived class with all its fields' and functions' access specifiers defaulted to public. Both class and struct can have member fields and functions. The only difference is their default access specifier and base class access specifier.
+
+5. By declaring structs or classes before their functions, incomplete type specifications can be used. Think about all possible usages of incomplete type specification.
+A: By declaring structs but without its fields, a library is able to conceal its implmentation details from the user, which is commonly used in commercial products. Its size is unknown to user thus user can only get a pointer to it and use library-provided functions to manipulate it. Also, we can eliminate some uses of #include, leaving a shorter compilation time and simplifying the build dependency graph. It also prevents the class be derived. In some cases, class A might need class B, yet class B also needs class A, so you have to forward declaration either of the two.

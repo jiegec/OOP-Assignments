@@ -1,0 +1,6 @@
+Programming skills: 
+GitHub: https://github.com/jiegec 。博客主页： https://jiegec.github.io/ 熟练编写C/C++，比较熟练的语言有Rust, Python, Go, Emacs Lisp，理解函数式编程和面向对象编程，懂Haskell和Lisp。自学了一定的操作系统，网络原理，看过大量编程各类书籍，长期泡在GitHub(github.com/jiegec)并经常浏览技术类网站，如HackerNews和LWN.net。最早时接触HTML CSS和JS，后又在机器人上进行简单的类MIT Scratch可视化编程，后学习C++并进行了一段时间的Windows MFC开发，又利用暑假的时间参与到一个公司的项目中进行Android客户端的开发。接触过Coq等程序证明语言，也参与维护开源软件（提交pull request，维护macOS下的一款手势软件MacGesture），参与了Emacs China社区的建设。先写到这么多，想起来再补充。
+Competitions I have attended:
+NOIP省一等奖。曾经自学OI，终觉算法非我所好，渐渐放弃OI转向高考。
+Honors I have achieved in the past:
+2017广东省高考实考状元。
