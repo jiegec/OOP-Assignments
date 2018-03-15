@@ -1,6 +1,9 @@
 #include "func.h"
 #include "timer.h"
-#include <random>
+#include <stdio.h>
+#include <stdlib.h>
+#include <memory.h>
+#include <time.h>
 using namespace std;
 
 typedef double (*func)(double *, int, double);
@@ -24,10 +27,10 @@ int main(int argc, char *argv[]) {
   const int n = 100;
   double coef[n];
   double x;
-  mt19937 rng(random_device{}());
-  x = rng() % 10;
+  srand(time(NULL));
+  x = rand() % 10;
   for (int i = 0; i < n; i++) {
-    coef[i] = rng() % 10;
+    coef[i] = rand() % 10;
   }
   double poly_naive = test_func("poly_naive", polynomial_naive, coef, n, x);
   double poly_qinjiushao =

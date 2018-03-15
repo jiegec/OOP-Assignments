@@ -1,6 +1,9 @@
 #include "timer.h"
 #include "unionfind.h"
-#include <random>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+
 using namespace std;
 
 
@@ -20,9 +23,9 @@ double test_func(const char* name, UnionFind& tested_class, int arr[], int len) 
 int main(int argc, char* argv[]) {
   const int n = 100;
   int arr[n];
-  mt19937 rng(random_device{}());
+  srand(time(NULL));
   for (int i = 0; i < n; i++) {
-    arr[i] = rng() % 1000;
+    arr[i] = rand() % 1000 + 1;
   }
   UnionFindNaive uf_naive;
   UnionFindOpt uf_opt;

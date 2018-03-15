@@ -1,6 +1,9 @@
 #include "timer.h"
 #include "sorter.h"
-#include <random>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <memory.h>
 using namespace std;
 
 typedef void (*func)(int*, int);
@@ -33,9 +36,9 @@ double test_func(const char* name, func tested_func, int arr[], int len) {
 int main(int argc, char* argv[]) {
   const int n = 100;
   int arr[n];
-  mt19937 rng(random_device{}());
+  srand(time(NULL));
   for (int i = 0; i < n; i++) {
-    arr[i] = rng() % 1000;
+    arr[i] = rand() % 1000;
   }
   double bubble_sort = test_func("bubble_sort", Sorter::bubble_sort, arr, n);
   double quick_sort = test_func("quick_sort", Sorter::quick_sort, arr, n);
