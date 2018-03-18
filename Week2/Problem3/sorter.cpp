@@ -1,5 +1,6 @@
 #include "sorter.h"
 #include <algorithm>
+#include <memory.h>
 #include "stdlib.h"
 
 void Sorter::bubble_sort(int* arr, int len) {
