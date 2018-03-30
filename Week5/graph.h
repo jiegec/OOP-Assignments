@@ -20,7 +20,7 @@ class Graph {
 
   // Get the weight of the edge from a, to b
   // Throws if the edge from a to b does not exist
-  float get_weight(int a, int b);
+  float get_weight(int a, int b) const;
 
   // Get the begin const iterator of adjacents of the node
   std::map<int, float>::const_iterator adjacent_cbegin(int node) const;

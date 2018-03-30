@@ -8,6 +8,5 @@ mst: mst.o main.o graph.o
 
 .PHONY: test
 test: mst
-	./mst > mst.dot && dot -Kfdp -n -Tpng -o mst.png mst.dot && open mst.png
-
+	./mst gen
 

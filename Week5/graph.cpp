@@ -16,8 +16,8 @@ void Graph::push_edge(int a, int b, float weight) {
   adjacent_edges[b][a] = weight;
 }
 
-float Graph::get_weight(int a, int b) {
-  return adjacent_edges[a][b];
+float Graph::get_weight(int a, int b) const {
+  return adjacent_edges.at(a).at(b);
 }
 
 std::map<int, float>::const_iterator Graph::adjacent_cbegin(int node) const {
