@@ -1,6 +1,7 @@
 #include "mst.h"
 #include <queue>
 #include <set>
+#include <algorithm>
 
 using namespace std;
 
