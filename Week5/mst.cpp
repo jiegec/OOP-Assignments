@@ -143,14 +143,14 @@ vector<vector<pair<int, int>>> AmalAjishKumarMST::computeTopKMST(
     for (int i = 0; i < graph.num_nodes(); i++) {
       for (auto it = graph.adjacent_cbegin(i); it != graph.adjacent_cend(i);
            it++) {
-        // naive implementation.. slow!
+        // naive implementation.. can be faster somehow
         pair<int, int> new_edge(min(i, it->first), max(i, it->first));
         auto new_edge_weight =
             graph.get_weight(new_edge.first, new_edge.second);
         int j;
         for (j = 0; j < mst.mst.size(); j++) {
           if (new_edge == mst.mst[j]) {
-            // already jn MST
+            // already in MST
             break;
           }
         }
@@ -181,6 +181,7 @@ vector<vector<pair<int, int>>> AmalAjishKumarMST::computeTopKMST(
                 if (edge == mst.mst[h]) {
                   new_mst.mst[h] = new_edge;
                   // naive...
+                  // but sorting is not so slow on mostly sorted data
                   sort(new_mst.mst.begin(), new_mst.mst.end());
                   new_mst.weight = new_mst.weight - weight + new_edge_weight;
                   list_of_mst.insert(new_mst);
@@ -196,6 +197,5 @@ vector<vector<pair<int, int>>> AmalAjishKumarMST::computeTopKMST(
     result.insert(mst.mst);
   }
 
-  // naive remove unique...
   return vector<vector<pair<int,int>>>(result.cbegin(),result.cend());
 }

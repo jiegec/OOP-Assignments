@@ -17,6 +17,7 @@ float dist(pair<int, int> a, pair<int, int> b) {
               (a.second - b.second) * (a.second - b.second));
 }
 
+// print the edges into a graphviz file
 void print_edges(const Graph& graph,
                  const vector<pair<int, int>>& point_vec,
                  const vector<pair<int, int>>& edges,
@@ -40,6 +41,7 @@ int main(int argc, char* argv[]) {
   Graph graph;
   srand(time(nullptr));
   const int num_points = 20;
+  // randomly generate num_points of unique points
   set<pair<int, int>> points;
   while (points.size() < num_points) {
     pair<int, int> new_point(rand() % 10001, rand() % 10001);
@@ -58,6 +60,8 @@ int main(int argc, char* argv[]) {
   auto resultKruskal = KruskalMST::computeMST(graph);
   sort(resultPrim.begin(), resultPrim.end());
   sort(resultKruskal.begin(), resultKruskal.end());
+  // compare the reslt of Prim and Kruskal
+  // they should be the same all the time
   for (int i = 0; i < resultPrim.size(); i++) {
     auto prim = resultPrim[i], kruskal = resultKruskal[i];
     if (prim != kruskal) {
@@ -81,6 +85,7 @@ int main(int argc, char* argv[]) {
           "work in your coputer)."
        << endl;
 
+  // generate graphviz
   if (argc == 2) {
     system("dot -Kfdp -n -Tpng -o mst.png mst.dot");
     for (int i = 0; i < resultAAK.size(); i++) {
