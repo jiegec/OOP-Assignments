@@ -63,6 +63,7 @@ Matrix Matrix::multiply(const Matrix &another) const {
     for (int i = 0;i < row;i++) {
         result.arr[i] = new int[another.column];
         for (int j = 0;j < another.column;j++) {
+            result.arr[i][j] = 0;
             for (int k = 0;k < column;k++) {
                 result.arr[i][j] += arr[i][k] * another.arr[k][j];
             }
