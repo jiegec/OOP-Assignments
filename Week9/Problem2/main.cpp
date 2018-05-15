@@ -14,12 +14,14 @@ public:
     strcpy(data_, other.data_);
   }
   bug &operator=(const bug &other) {
+    if (this == &other)
+        return *this;
     delete[] data_;
     data_ = new char[strlen(other.data_) + 1];
     strcpy(data_, other.data_);
     return *this;
   }
-  ~bug() { delete data_; }
+  ~bug() { delete [] data_; }
   void show() { cout << data_ << endl; }
 };
 void test(bug str1) {
