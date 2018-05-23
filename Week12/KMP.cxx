@@ -38,7 +38,7 @@ KMP::KMP(string patFileName, string inputFileName)
 void KMP::computeNext()
 {
     next_.clear();
-    next_.assign(pattern_.size(), -1);
+    next_.assign(pattern_.size()+1, -1);
     int i = 0;       // next_[i]
     next_[i] = -1;    // next_[0] = -1
     int j = -1;      // position index
